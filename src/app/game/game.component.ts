@@ -23,17 +23,17 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    // repeat animation every 1.5sec
+    // repeat animation every 1sec
     if (!this.pickCardAnimation) {
       // currentCard = last value from array && pop deletes last value from array 
       this.currentCard = this.game.stack.pop();
-      console.log(this.currentCard)
       this.pickCardAnimation = true;
 
-      // reset animation after 1.5sec
+      // reset animation after 1sec & push currentCard to playerCards
       setTimeout(() => {
+        this.game.playerCards.push(this.currentCard);
         this.pickCardAnimation = false;
-      }, 1500);
+      }, 1000);
     }
   }
 
