@@ -8,8 +8,7 @@ import { Game } from 'src/models/game';
 })
 export class GameComponent implements OnInit {
   pickCardAnimation = false;
-  // game: Game;
-  game: Game[] = [];
+  game: Game;
 
   constructor() { }
 
@@ -18,10 +17,8 @@ export class GameComponent implements OnInit {
   }
 
   newGame() {
-    // this.game = new Game();
-    this.game[0] = new Game();
-    // console.log(this.game[0]);
-    console.log(this.game[0]);
+    this.game = new Game();
+    console.log(this.game);
   }
 
   takeCard() {
