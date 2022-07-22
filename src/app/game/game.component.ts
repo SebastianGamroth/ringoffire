@@ -43,8 +43,6 @@ export class GameComponent implements OnInit {
    * Dialog Player 
    */
   openDialog(): void {
-    console.log('click');
-
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe(result => {
