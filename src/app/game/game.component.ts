@@ -8,6 +8,7 @@ import { Game } from 'src/models/game';
 })
 export class GameComponent implements OnInit {
   pickCardAnimation = false;
+  currentCard: string = '';
   game: Game;
 
   constructor() { }
@@ -22,7 +23,18 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    this.pickCardAnimation = true;
+    // repeat animation every 1.5sec
+    if (!this.pickCardAnimation) {
+      // currentCard = last value from array && pop deletes last value from array 
+      this.currentCard = this.game.stack.pop();
+      console.log(this.currentCard)
+      this.pickCardAnimation = true;
+
+      // reset animation after 1.5sec
+      setTimeout(() => {
+        this.pickCardAnimation = false;
+      }, 1500);
+    }
   }
 
 }
