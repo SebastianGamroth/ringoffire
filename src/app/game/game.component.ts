@@ -31,6 +31,10 @@ export class GameComponent implements OnInit {
       this.currentCard = this.game.stack.pop();
       this.pickCardAnimation = true;
 
+      // current Player ++ % max player length loop
+      this.game.currentPlayer++;
+      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+
       // reset animation after 1sec & push currentCard to playerCards
       setTimeout(() => {
         this.game.playerCards.push(this.currentCard);
