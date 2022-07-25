@@ -9,11 +9,13 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
     a {
+        font-family: 'Open Sans', sans-serif;
         text-decoration: none;
     }
 }
 
-.menuOpen{
+.menuOpen {
     left: 0;
 }
