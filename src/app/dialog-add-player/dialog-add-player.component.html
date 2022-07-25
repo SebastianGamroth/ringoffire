@@ -5,8 +5,15 @@
         <mat-label>Name</mat-label>
         <input matInput [(ngModel)]="name">
     </mat-form-field>
+    <p>Please choose an avatar.</p>
+    <div class="choose_avatar">
+        <label *ngFor="let avatar of [1,2,3,4,5];">
+            <!-- <input type="radio" value="avatar"> -->
+            <img (click)="changeImg(avatar)" src="assets/img/profile/{{ avatar }}.png">
+        </label>
+    </div>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [disabled]="name.length == 0" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
+    <button mat-button  [disabled]="name.length == 0" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
 </div>

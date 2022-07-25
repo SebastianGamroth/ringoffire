@@ -9,6 +9,7 @@ export class PlayerComponent implements OnInit {
 
   // name comes from game.componente
   @Input() name;
+  @Input() avatarPic;
   @Input() playerActive: boolean = false;
   
   constructor() { }

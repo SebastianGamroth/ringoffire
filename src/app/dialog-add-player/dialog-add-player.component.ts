@@ -8,6 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogAddPlayerComponent implements OnInit {
   name: string = '';
+  avatarPic;
   constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>) { }
 
   ngOnInit(): void {
@@ -15,6 +16,10 @@ export class DialogAddPlayerComponent implements OnInit {
 
   onNoClick() {
     this.dialogRef.close();
+  }
+
+  changeImg(value) {
+    this.avatarPic = value;
   }
 
 }

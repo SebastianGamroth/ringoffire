@@ -15,6 +15,10 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { GameInfoComponent } from './game-info/game-info.component';
 import {MatCardModule} from '@angular/material/card';
+import { ImprintComponent } from './imprint/imprint.component';
+import { CopyrightComponent } from './copyright/copyright.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import {MatCardModule} from '@angular/material/card';
     GameComponent,
     PlayerComponent,
     DialogAddPlayerComponent,
-    GameInfoComponent
+    GameInfoComponent,
+    ImprintComponent,
+    CopyrightComponent,
+    PrivacyComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
