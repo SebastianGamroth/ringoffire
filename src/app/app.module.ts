@@ -19,6 +19,10 @@ import { ImprintComponent } from './imprint/imprint.component';
 import { CopyrightComponent } from './copyright/copyright.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { MenuComponent } from './menu/menu.component';
+import {MatMenuModule} from '@angular/material/menu';
+
+
+
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import { MenuComponent } from './menu/menu.component';
     MatDialogModule,
     MatInputModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

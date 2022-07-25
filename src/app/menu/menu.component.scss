@@ -1,19 +1,8 @@
 .menu {
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
-    height: 32px;
-    // width: 40px;
-    background-color: rgb(189, 189, 189);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-    a {
-        font-family: 'Open Sans', sans-serif;
-        text-decoration: none;
-    }
+    background-color: rgb(255, 255, 255);
 }
 
 .menuOpen {
