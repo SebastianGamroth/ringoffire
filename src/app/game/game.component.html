@@ -2,7 +2,7 @@
     player.component <- name = game.name.component
 ff -->
 <app-player *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.px': 100 + (i * 90)}"
-  [playerActive]="i == game.currentPlayer" [name]="player" class="player-position">
+    [playerActive]="i == game.currentPlayer" [name]="player" class="player-position">
 </app-player>
 
 <div class="field">
@@ -13,7 +13,10 @@ ff -->
             src="assets/img/cards/card_cover.svg">
 
         <!-- take card animation -->
-        <img (click)="takeCard()" class="top-card" style="right: 25px;" src="assets/img/cards/card_cover.svg">
+        <img  (click)="takeCard()" class="top-card" style="right: 25px;"
+            src="assets/img/cards/card_cover.svg">
+
+        <!-- popUp message if no Player -->
 
         <!-- stack cards played -->
         <img *ngFor="let card of game.playerCards" class="played-card" src="assets/img/cards/{{ card }}.svg">

@@ -9,12 +9,13 @@ export class PlayerComponent implements OnInit {
 
   // name comes from game.componente
   @Input() name;
-  @Input() avatarPic;
+  @Input() avatar;
   @Input() playerActive: boolean = false;
   
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.name,this.avatar)
   }
 
 }
