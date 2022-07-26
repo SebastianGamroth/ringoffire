@@ -1,8 +1,12 @@
 export class Game {
     public players: string[] = [];
+    public avatars: string[] = [];
     public stack: string[] = [];
     public playerCards: string[] = [];
     public currentPlayer: number = 0;
+
+    public pickCardAnimation = false; // gezogene Karte Animation
+    public currentCard: string = ''; // aktuelle gezogene Karte
 
     constructor() {
 
@@ -20,9 +24,12 @@ export class Game {
     public toJson() {
         return {
             players: this.players,
+            avatars: this.avatars,
             stack: this.stack,
             playerCards: this.playerCards,
-            currentPlayer: this.currentPlayer
+            currentPlayer: this.currentPlayer,
+            pickCardAnimation: this.pickCardAnimation,
+            currentCard: this.currentCard
         };
     }
 }
