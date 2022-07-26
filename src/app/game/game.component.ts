@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { AlltasksService } from '../alltasks.service';
 
 @Component({
   selector: 'app-game',
@@ -11,24 +12,28 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 export class GameComponent implements OnInit {
   pickCardAnimation = false;
   currentCard: string = '';
-  game: Game;
+  game: Game; // Array
+  // avatarName;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public alltasks: AlltasksService) { }
 
   ngOnInit(): void {
     this.newGame();
   }
+
 
   newGame() {
     this.game = new Game();
     console.log(this.game);
   }
 
-  takeCard() { console.log(this.game.players.length)
+  /**
+   * takes a card from the stack and lays it out
+   */
+  takeCard() {
     if (this.game.players.length < 1) {
       this.openDialog();
     } else {
-      console.log(this.game)
       // repeat animation every 1sec
       if (!this.pickCardAnimation) {
         // currentCard = last value from array && pop deletes last value from array 
@@ -48,9 +53,8 @@ export class GameComponent implements OnInit {
     }
   }
 
-  avatar = '1';
   /**
-   * Open dialog Window
+   * Open window to create player
    */
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
@@ -58,9 +62,10 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) {
         this.game.players.push(name);
-        this.game.avatar.push(this.avatar);
 
-        console.log(name,this.avatar)
+
+        this.alltasks.task.push(this.alltasks.avatarPic)
+        console.log(this.alltasks.task)
       }
     });
   }

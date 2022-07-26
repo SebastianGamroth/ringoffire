@@ -11,11 +11,11 @@ export class PlayerComponent implements OnInit {
   @Input() name;
   @Input() avatar;
   @Input() playerActive: boolean = false;
-  
+
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.name,this.avatar)
   }
 
 }

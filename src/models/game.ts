@@ -1,6 +1,6 @@
 export class Game {
     public players: string[] = [];
-    public avatar: string[] = [];
+    public avatars: string[] = [];
     public stack: string[] = [];
     public playerCards: string[] = [];
     public currentPlayer: number = 0;
@@ -22,8 +22,8 @@ export class Game {
  * old Version
  * https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array?page=1&tab=scoredesc#tab-top
  * 
- * @param array - shuffle random the stack
- * @returns 
+ * @param array - Shuffle the deck of cards randomly
+ * @returns - mixed cards
  */
 function shuffle(array) {
     let currentIndex = array.length, randomIndex;

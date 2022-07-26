@@ -20,7 +20,7 @@ import { CopyrightComponent } from './copyright/copyright.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { MenuComponent } from './menu/menu.component';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
@@ -35,7 +35,8 @@ import {MatMenuModule} from '@angular/material/menu';
     ImprintComponent,
     CopyrightComponent,
     PrivacyComponent,
-    MenuComponent
+    MenuComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatInputModule,
     FormsModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
