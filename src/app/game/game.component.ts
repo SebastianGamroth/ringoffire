@@ -45,9 +45,6 @@ export class GameComponent implements OnInit {
     console.log(this.game);
     // neues Objekt in fireBase Datenbak hizufügen
     // this.firestore.collection('games').add({ 'Hallo': 'Welt' });
-
-    // Arrays aus games - umgewandelt in Json - hinzugefügt in firestore Datenbank
-    this.firestore.collection('games').add(this.game.toJson());
   }
 
   /**
