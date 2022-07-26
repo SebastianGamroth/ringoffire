@@ -24,13 +24,13 @@ export class GameComponent implements OnInit {
 
     // logge mir id aus
     this.route.params.subscribe((params) => {
-      console.log(params);
+      console.log(params['id']);
 
       // übergebe die id
       // Zugriff auf firebase Datenbank - games, abonieren mit subscribe, game auslesen.
-      // this.firestore.collection('games').doc(params.id).valueChanges().subscribe((game) => {
-      //   console.log('game update ', game)
-      // });
+      this.firestore.collection('games').doc(params['id']).valueChanges().subscribe((game) => {
+        console.log('game update ', game)
+      });
 
     });
   }
