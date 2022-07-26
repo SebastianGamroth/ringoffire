@@ -3,6 +3,7 @@ import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { AlltasksService } from '../alltasks.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-game',
@@ -14,10 +15,14 @@ export class GameComponent implements OnInit {
   currentCard: string = '';
   game: Game; // Array
 
-  constructor(public dialog: MatDialog, public alltasks: AlltasksService) { }
+  constructor(private firestore: AngularFirestore, public dialog: MatDialog, public alltasks: AlltasksService) { }
 
   ngOnInit(): void {
     this.newGame();
+    // Zugriff auf firebase Datenbank - games, abonieren mit subscribe, game auslesen.
+    this.firestore.collection('games').valueChanges().subscribe((game) => {
+      console.log(game)
+    });
   }
 
 
@@ -63,7 +68,7 @@ export class GameComponent implements OnInit {
         this.game.players.push(name);
 
         this.alltasks.task.push(this.alltasks.avatarPic)
-        
+
         console.log(this.alltasks.task)
         console.log(this.game.players)
       }
