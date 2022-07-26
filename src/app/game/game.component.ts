@@ -13,7 +13,6 @@ export class GameComponent implements OnInit {
   pickCardAnimation = false;
   currentCard: string = '';
   game: Game; // Array
-  // avatarName;
 
   constructor(public dialog: MatDialog, public alltasks: AlltasksService) { }
 
@@ -63,9 +62,10 @@ export class GameComponent implements OnInit {
       if (name && name.length > 0) {
         this.game.players.push(name);
 
-
         this.alltasks.task.push(this.alltasks.avatarPic)
+        
         console.log(this.alltasks.task)
+        console.log(this.game.players)
       }
     });
   }
