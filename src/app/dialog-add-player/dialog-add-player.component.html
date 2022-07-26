@@ -7,26 +7,33 @@
     </mat-form-field>
     <p>Please choose an avatar.</p>
     <div class="choose_avatar">
-        <mat-button-toggle-group *ngFor="let avatar of ['1','2','3'];">
+        <mat-button-toggle-group class="btnImg">
             <!-- <img (click)="changeImg(avatar)" src="assets/img/profile/{{ avatar }}.png"> -->
 
-            <mat-button-toggle><img (click)="changeImg(avatar)" src="assets/img/profile/{{ avatar }}.png">
+            <mat-button-toggle *ngFor="let avatar of ['1','2','3','4','5','6'];">
+                <img (click)="changeImg(avatar)" src="assets/img/profile/{{ avatar }}.png">
             </mat-button-toggle>
 
         </mat-button-toggle-group>
     </div>
 
-    
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="btnImg">
 
-        <mat-button-toggle><img (click)="changeImg(avatar)" src="assets/img/profile/1.png">
+    <!-- <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="btnImg">
+
+        <mat-button-toggle><img (click)="changeImg(1)" src="assets/img/profile/1.png">
         </mat-button-toggle>
-        <mat-button-toggle><img (click)="changeImg(avatar)" src="assets/img/profile/2.png">
+        <mat-button-toggle><img (click)="changeImg(2)" src="assets/img/profile/2.png">
         </mat-button-toggle>
-        <mat-button-toggle><img (click)="changeImg(avatar)" src="assets/img/profile/3.png">
+        <mat-button-toggle><img (click)="changeImg(3)" src="assets/img/profile/3.png">
+        </mat-button-toggle>
+        <mat-button-toggle><img (click)="changeImg(4)" src="assets/img/profile/4.png">
+        </mat-button-toggle>
+        <mat-button-toggle><img (click)="changeImg(5)" src="assets/img/profile/5.png">
+        </mat-button-toggle>
+        <mat-button-toggle><img (click)="changeImg(6)" src="assets/img/profile/6.png">
         </mat-button-toggle>
 
-    </mat-button-toggle-group>
+    </mat-button-toggle-group> -->
 
 </div>
 <div mat-dialog-actions>
