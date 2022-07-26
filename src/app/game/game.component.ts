@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { AlltasksService } from '../alltasks.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -15,13 +16,22 @@ export class GameComponent implements OnInit {
   currentCard: string = '';
   game: Game; // Array
 
-  constructor(private firestore: AngularFirestore, public dialog: MatDialog, public alltasks: AlltasksService) { }
+  // private route:ActivatedRoute - game mit id Variable
+  constructor(private route: ActivatedRoute, private firestore: AngularFirestore, public dialog: MatDialog, public alltasks: AlltasksService) { }
 
   ngOnInit(): void {
     this.newGame();
-    // Zugriff auf firebase Datenbank - games, abonieren mit subscribe, game auslesen.
-    this.firestore.collection('games').valueChanges().subscribe((game) => {
-      console.log(game)
+
+    // logge mir id aus
+    this.route.params.subscribe((params) => {
+      console.log(params);
+
+      // übergebe die id
+      // Zugriff auf firebase Datenbank - games, abonieren mit subscribe, game auslesen.
+      // this.firestore.collection('games').doc(params.id).valueChanges().subscribe((game) => {
+      //   console.log('game update ', game)
+      // });
+
     });
   }
 
@@ -31,8 +41,9 @@ export class GameComponent implements OnInit {
     console.log(this.game);
     // neues Objekt in fireBase Datenbak hizufügen
     // this.firestore.collection('games').add({ 'Hallo': 'Welt' });
+
     // Arrays aus games - umgewandelt in Json - hinzugefügt in firestore Datenbank
-    this.firestore.collection('games').add(this.game.toJson);
+    this.firestore.collection('games').add(this.game.toJson());
   }
 
   /**
