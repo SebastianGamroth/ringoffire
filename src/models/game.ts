@@ -1,6 +1,5 @@
 export class Game {
     public players: string[] = [];
-    public avatars: string[] = [];
     public stack: string[] = [];
     public playerCards: string[] = [];
     public currentPlayer: number = 0;
@@ -15,6 +14,16 @@ export class Game {
         }
 
         shuffle(this.stack);
+    }
+
+    // Game Arrays in Json umwandeln
+    public toJson() {
+        return {
+            players: this.players,
+            stack: this.stack,
+            playerCards: this.playerCards,
+            currentPlayer: this.currentPlayer
+        };
     }
 }
 
