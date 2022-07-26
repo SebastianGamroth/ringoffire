@@ -7,14 +7,10 @@
     </mat-form-field>
     <p>Please choose an avatar.</p>
     <div class="choose_avatar">
-        <mat-button-toggle-group >
+        <mat-button-toggle-group *ngFor="let avatar of ['1','2','3'];">
             <!-- <img (click)="changeImg(avatar)" src="assets/img/profile/{{ avatar }}.png"> -->
 
-            <mat-button-toggle><img (click)="changeImg( avatar)" src="assets/img/profile/{{ avatar }}.png">
-            </mat-button-toggle>
-            <mat-button-toggle><img (click)="changeImg( avatar)" src="assets/img/profile/{{ avatar }}.png">
-            </mat-button-toggle>
-            <mat-button-toggle><img (click)="changeImg( avatar)" src="assets/img/profile/{{ avatar }}.png">
+            <mat-button-toggle><img (click)="changeImg(avatar)" src="assets/img/profile/{{ avatar }}.png">
             </mat-button-toggle>
 
         </mat-button-toggle-group>
