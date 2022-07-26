@@ -15,6 +15,9 @@ export class StartScreenComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Erstellt neues Game 
+   */
   newGame() {
     let game = new Game;
     // neues Siel erstellen

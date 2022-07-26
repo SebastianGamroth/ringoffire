@@ -15,6 +15,7 @@ export class GameComponent implements OnInit {
   pickCardAnimation = false;
   currentCard: string = '';
   game: Game; // Array
+  gamesId: string; // url id aus Firebase Projekt
 
   // private route:ActivatedRoute - game mit id Variable
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore, public dialog: MatDialog, public alltasks: AlltasksService) { }
@@ -26,9 +27,11 @@ export class GameComponent implements OnInit {
     this.route.params.subscribe((params) => {
       console.log(params['id']);
 
+      // id an gamesId übergeben
+      this.gamesId = params['id'];
       // übergebe die id
       // Zugriff auf firebase Datenbank - games, abonieren mit subscribe, game auslesen.
-      this.firestore.collection('games').doc(params['id']).valueChanges().subscribe((game: any) => {
+      this.firestore.collection('games').doc(this.gamesId).valueChanges().subscribe((game: any) => {
         console.log('game update ', game);
         this.game.currentPlayer = game.currentPlayer;
         this.game.playerCards = game.playerCards;
@@ -59,6 +62,8 @@ export class GameComponent implements OnInit {
         // currentCard = last value from array && pop deletes last value from array 
         this.currentCard = this.game.stack.pop();
         this.pickCardAnimation = true;
+        // speichern sobald karte aus stappel entfernt wurde
+        this.saveGame();
 
         // current Player ++ % max player length loop
         this.game.currentPlayer++;
@@ -68,26 +73,35 @@ export class GameComponent implements OnInit {
         setTimeout(() => {
           this.game.playerCards.push(this.currentCard);
           this.pickCardAnimation = false;
+          // speichern sobald karte hinzugefügt wurde
+          this.saveGame();
         }, 1000);
       }
     }
   }
 
   /**
-   * Open window to create player
+   * create new player - open Dialog Window
    */
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) {
+
         this.game.players.push(name);
 
         this.alltasks.task.push(this.alltasks.avatarPic)
 
-        console.log(this.alltasks.task)
-        console.log(this.game.players)
+        this.saveGame();
       }
     });
+  }
+
+  /**
+   * Game mit aktueller Id speichern
+   */
+  saveGame() {
+    this.firestore.collection('games').doc(this.gamesId).update(this.game.toJson());
   }
 }
