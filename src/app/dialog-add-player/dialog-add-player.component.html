@@ -7,20 +7,33 @@
     </mat-form-field>
     <p>Please choose an avatar.</p>
     <div class="choose_avatar">
-        <label *ngFor="let avatar of ['1','2','3','4','5'];">
-            <!-- <input type="radio" value="avatar"> -->
-            <img (click)="changeImg(avatar)" src="assets/img/profile/{{ avatar }}.png">
-        </label>
+        <mat-button-toggle-group >
+            <!-- <img (click)="changeImg(avatar)" src="assets/img/profile/{{ avatar }}.png"> -->
+
+            <mat-button-toggle><img (click)="changeImg( avatar)" src="assets/img/profile/{{ avatar }}.png">
+            </mat-button-toggle>
+            <mat-button-toggle><img (click)="changeImg( avatar)" src="assets/img/profile/{{ avatar }}.png">
+            </mat-button-toggle>
+            <mat-button-toggle><img (click)="changeImg( avatar)" src="assets/img/profile/{{ avatar }}.png">
+            </mat-button-toggle>
+
+        </mat-button-toggle-group>
     </div>
 
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle value="1">Img1</mat-button-toggle>
-        <mat-button-toggle value="2">Img2</mat-button-toggle>
-        <mat-button-toggle value="3">Img3</mat-button-toggle>
-      </mat-button-toggle-group>
+    
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="btnImg">
+
+        <mat-button-toggle><img (click)="changeImg(avatar)" src="assets/img/profile/1.png">
+        </mat-button-toggle>
+        <mat-button-toggle><img (click)="changeImg(avatar)" src="assets/img/profile/2.png">
+        </mat-button-toggle>
+        <mat-button-toggle><img (click)="changeImg(avatar)" src="assets/img/profile/3.png">
+        </mat-button-toggle>
+
+    </mat-button-toggle-group>
 
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button  [disabled]="name.length == 0" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
+    <button mat-button [disabled]="name.length == 0" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
 </div>
