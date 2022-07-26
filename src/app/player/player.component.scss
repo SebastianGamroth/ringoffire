@@ -2,7 +2,7 @@
     width: 300px;
     display: flex;
     align-items: center;
-    background-color: rgb(116, 116, 116);
+    background-color: #747474cf;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 
@@ -20,5 +20,5 @@
 }
 
 .player-active {
-    background-color: orange !important;
+    background-color: #ffa500c7 !important;
 }

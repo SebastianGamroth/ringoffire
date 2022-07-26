@@ -66,13 +66,11 @@ export class GameComponent implements OnInit {
         // currentCard = last value from array && pop deletes last value from array 
         this.game.currentCard = this.game.stack.pop();
         this.game.pickCardAnimation = true;
-        // speichern sobald karte aus stappel entfernt wurde
-        this.saveGame();
-
         // current Player ++ % max player length loop
         this.game.currentPlayer++;
         this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
-
+        // speichern sobald karte aus stappel entfernt wurde
+        this.saveGame();
         // reset animation after 1sec & push currentCard to playerCards
         setTimeout(() => {
           this.game.playerCards.push(this.game.currentCard);
