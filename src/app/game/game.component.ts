@@ -83,17 +83,25 @@ export class GameComponent implements OnInit {
     }
   }
 
-  // 
+  /**
+   * Delete Player
+   * @param playerId 
+   */
   editPlayer(playerId: number) {
     console.log(playerId)
     const dialogRef = this.dialog.open(EditPlayerComponent);
 
     dialogRef.afterClosed().subscribe((change: string) => {
-   
       console.log(change)
-// video Bonus 2 - Ready for production - Wir releasen 16min
-    });
 
+      if (change) {
+        if (change == 'DELETE') {
+          this.game.players.splice(playerId, 1);
+          this.game.avatars.splice(playerId, 1);
+          this.saveGame();
+        }
+      }
+    });
   }
 
   /**
