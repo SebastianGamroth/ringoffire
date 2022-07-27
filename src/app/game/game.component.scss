@@ -14,6 +14,8 @@
     img {
         position: absolute;
         width: 120px;
+        right: 80px;
+        top: 60px;
     }
 }
 
@@ -60,6 +62,16 @@
     z-index: 1;
 }
 
+.playerContainer {
+    position: absolute;
+    top: 60px;
+    right: 6px;
+    width: 260px;
+    display: flex;
+    height: 380px;
+    overflow-y: auto;
+}
+
 .btn-add {
     position: absolute;
     right: 32px;
@@ -71,4 +83,73 @@
     bottom: 32px;
     left: 100px;
     right: 100px;
+
+    @media (max-width:720px) {
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.scroll-container {
+    z-index: 1;
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    top: 0;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    app-player-mobile {
+        margin-left: 8px;
+    }
+}
+
+app-player,
+app-player-mobile {
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.15);
+    }
+}
+
+// .scroll-container::-webkit-scrollbar,
+// .playerContainer::-webkit-scrollbar {
+//     display: none;
+// }
+
+@media (min-width:720px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+// custem scrollbar
+
+.flipped {
+    transform: rotateX(180deg);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #3f51b5;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #33408d;
 }

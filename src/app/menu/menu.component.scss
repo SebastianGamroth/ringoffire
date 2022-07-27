@@ -1,10 +1,22 @@
 .menu {
     position: absolute;
-    top: 0;
-    right: 0;
-    background-color: rgb(255, 255, 255);
+    top: 6px;
+    right: 6px;
+    background-color: #3f51b5;
+    color: white;
+
+    &:hover {
+        background: #33408d
+    }
 }
 
 .menuOpen {
     left: 0;
+}
+
+@media (max-width:720px) {
+    .menu {
+        top: 100px;
+    }
+
 }

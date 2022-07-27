@@ -8,3 +8,15 @@ html,
 body {
     height: 100%;
 }
+
+@media (max-width:720px) {
+    .hide-mobile {
+        display: none;
+    }
+}
+
+@media (min-width:720px) {
+    .hide-desktop {
+        display: none;
+    }
+}

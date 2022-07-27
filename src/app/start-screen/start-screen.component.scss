@@ -7,6 +7,10 @@
     justify-content: center;
     align-items: center;
 
+    @media (max-width:960px) {
+        overflow: hidden;
+    }
+
     img {
         height: 100vh;
     }
@@ -21,11 +25,15 @@
     justify-content: center;
 
     img {
-        width: 40vw;
+        width: 34vw;
         height: auto;
-    }
 
-    &:hover {
-        filter: brightness(1.6);
+        @media (max-width:960px) {
+            width: 270px;
+        }
+
+        &:hover {
+            filter: brightness(1.6);
+        }
     }
 }

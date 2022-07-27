@@ -1,0 +1,9 @@
+.infoContainer {
+    background-color: #ffffffcf;
+}
+
+.mat-card {
+    @media (max-width:720px) {
+        min-height: 80px;
+    }
+}
